@@ -1,4 +1,4 @@
-# inicat!
+# Minicat!
 
 Minicat with netty,just like tomcat a little,yet Users can request data asynchronously through ajax and encapsulated the JDBC.
 This way, users don't have to focus on the configuration of the framework , but only on business development; Although also need some configuration in minicat
