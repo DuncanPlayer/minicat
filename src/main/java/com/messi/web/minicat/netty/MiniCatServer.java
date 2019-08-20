@@ -14,12 +14,12 @@ public class MiniCatServer {
 
     private static Logger LOGGER = LoggerFactory.getLogger(MiniCatServer.class);
 
-    //主线程组
+    //Master ThreadGroup
     private EventLoopGroup masterGroup;
-    //从线程组
+    //Slave ThreadGroup
     private EventLoopGroup slaveGroup;
 
-    //启动类
+    //Server Application
     private ServerBootstrap serverBootstrap;
     private ChannelFuture future;
 
