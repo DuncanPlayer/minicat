@@ -15,6 +15,7 @@ import com.messi.web.minicat.reader.HtmlReader;
 import com.messi.web.minicat.reader.JSReader;
 import com.messi.web.minicat.reader.PictureReader;
 import com.messi.web.minicat.reflection.ReflectMethod;
+import com.messi.web.minicat.reflection.test.ReflectUtils;
 import com.messi.web.minicat.utils.GetURLParams;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
@@ -57,7 +58,9 @@ public class HttpHandler extends SimpleChannelInboundHandler<HttpObject> {
                 //GET处理用户请求数据，并返回JSON数据
                 responseContent.setLength(0);
                 Object[] params = GetURLParams.getUrlparams(request.getUri());
-                String result = ReflectMethod.reflectMethod(MappingContext.take(path),params);
+//                String result = ReflectMethod.reflectMethod(MappingContext.take(path),params);
+                //动态方法调用
+                String result = ReflectUtils.reflect(MappingContext.take(path),params);
                 responseContent.append(result);
                 DealMethod get = new DealWithGet();
                 get.deal(request, responseContent, ctx,ContentType.TEXTPLAIN);

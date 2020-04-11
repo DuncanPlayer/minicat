@@ -6,9 +6,10 @@ import com.messi.web.minicat.pojo.NideshopUser;
 
 public class Test{
 
-    public NideshopUser getUser(Integer id){
+    public NideshopUser getUser(String id){
         CommonSql<NideshopUser> userCommonSql = new UserResponstory();
-        NideshopUser user = userCommonSql.selectone("select * from nideshop_user where id="+id, null);
+        NideshopUser user = userCommonSql.selectone("select * from nideshop_user where id="+Integer.parseInt(id), null);
+        System.out.println(user);
         return user;
     }
 
